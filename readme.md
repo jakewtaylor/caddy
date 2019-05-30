@@ -25,6 +25,20 @@ const caddy = new Caddy();
 ```
 > The constructor takes an optional configuration object, see [here](#constructor).
 
+Then you can set values:
+```JavaScript
+caddy.set('key', 'value');
+```
+
+Get values:
+```JavaScript
+caddy.get('key'); // 'value'
+```
+
+And more! Read the documentation below.
+
+Caddy works by serializing an object into storage, so any value that can be JSON-ified with `JSON.stringify` can be stored with Caddy.
+
 ---
 
 ## Documentation
