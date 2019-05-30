@@ -113,7 +113,7 @@ caddy.push('key', 2); // Error!
 caddy.push('array', 1).push('array', 2);
 ```
 
-### flush
+### `flush`
 
 Empties the entire store.
 
