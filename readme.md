@@ -52,7 +52,7 @@ In most cases, the default options will be fine and you can just initiate caddy 
 const caddy = new Caddy();
 ```
 
-### set
+### `set`
 
 Adds an item into the storage.
 
@@ -67,7 +67,7 @@ caddy.set('key_a', 1)
      .set('key_b', 2)
 ```
 
-### get
+### `get`
 
 Gets an item from storage. Will return `undefined` if there is nothing stored against the given key.
 
@@ -76,7 +76,7 @@ caddy.get('my_key') // 'some sort of value'
 caddy.get('key_we_havent_set') // undefined
 ```
 
-### has
+### `has`
 
 Determines if a key exists in the store.
 
@@ -86,7 +86,7 @@ caddy.has('key_b') // true
 caddy.has('key_c') // false
 ```
 
-### push
+### `push`
 
 A convenience method that pushes the given value into an array stored at the given key. If there is nothing stored for the key, an array will be created with the value. If the value stored at the key is not an array, an error will be thrown.
 
@@ -124,7 +124,7 @@ caddy.flush();
 caddy.has('example'); // false
 ```
 
-### subscribe
+### `subscribe`
 
 `subscribe` allows you to perform some logic whenever the store is updated. You supply a callback function that will be passed the entire store object.
 
@@ -145,7 +145,7 @@ You can subscribe to a store as many times as you wish.
 **See also:** [`listen`](#listen)
 
 
-### listen
+### `listen`
 
 `listen` allows you to listen to **changes** to an item. It's similar to subscribe, but only for a specific key, and is only called when the value is different to what it was before<sup>[2](#notes)</sup>.
 
