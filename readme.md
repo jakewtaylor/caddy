@@ -43,7 +43,7 @@ The options allowed are:
 
 | Key | Description | Default |
 | - | - | - |
-| `key` | The unique key that is used when storing items. | `caddy`_`X`_ where X is a number from 1 upwards*. |
+| `key` | The unique key that is used when storing items. | `caddy`_`X`_ where X is a number from 1 upwards<sup>[1](#notes)</sup>. |
 | `driver` | The storage driver to use. Must have the same interface as sessionStorage/localStorage. | `window.localStorage` |
 
 In most cases, the default options will be fine and you can just initiate caddy without any options:
@@ -51,8 +51,6 @@ In most cases, the default options will be fine and you can just initiate caddy 
 ```JavaScript
 const caddy = new Caddy();
 ```
-
-\* Caddy keeps track of how many instances have been created, and increments the key every time to avoid collisions.
 
 ### set
 
@@ -149,7 +147,7 @@ You can subscribe to a store as many times as you wish.
 
 ### listen
 
-`listen` allows you to listen to **changes** to an item. It's similar to subscribe, but only for a specific key, and is only called when the value is different to what it was before. **Note:** the way Caddy compares values is simply the strict equality operator (`===`). Because of the way Caddy works, `listen` will not work properly if your value is an array or object, as Caddy will always see the value as different than last time. An alternative is to use [`subscribe`](#subscribe) and determine whether the value has changed yourself.
+`listen` allows you to listen to **changes** to an item. It's similar to subscribe, but only for a specific key, and is only called when the value is different to what it was before<sup>[2](#notes)</sup>.
 
 ```JavaScript
 caddy.listen('my_key', (value) => {
@@ -160,3 +158,9 @@ caddy.listen('my_key', (value) => {
 You can listen to a value as many times as you wish.
 
 **See also:** [`subscribe`](#subscribe)
+
+
+## Notes
+
+1. Caddy keeps track of how many instances have been created, and increments the key every time to avoid collisions.
+2. The way Caddy compares values is by using the strict equality operator (`===`). Because of the way Caddy works, `listen` will not work properly if your value is an array or object, as Caddy will always see the value as different than last time. A workaround is to use [`subscribe`](#subscribe) and determine whether the value has changed yourself.
