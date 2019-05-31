@@ -68,7 +68,7 @@ export class Caddy {
      */
     notifyListeners () {
         // Get the keys of both the previous and current stores.
-        const prevKeys = Object.keys(this.prevStore);
+        const prevKeys = Object.keys(this.prevStore || {});
         const currentKeys = Object.keys(this.store);
 
         // Go through every current key
