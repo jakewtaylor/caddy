@@ -1,0 +1,23 @@
+{
+  "name": "caddyjs",
+  "version": "0.0.1",
+  "description": "Simple to use wrapper for localStorage/sessionStorage",
+  "source": "caddy.js",
+  "main": "build/caddy.js",
+  "repository": "git@github.com:jakewtaylor/caddy.git",
+  "author": "Jake Taylor <me@jaketaylor.co>",
+  "license": "MIT",
+  "keywords": [
+    "simple",
+    "storage",
+    "wrapper"
+  ],
+  "homepage": "https://github.com/jakewtaylor/caddy",
+  "devDependencies": {
+    "microbundle": "^0.11.0"
+  },
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch"
+  }
+}
