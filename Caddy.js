@@ -47,7 +47,7 @@ export class Caddy {
     persistStore () {
         const { driver } = this.options;
 
-        this.prevStore = JSON.parse(driver.getItem(this.key));
+        this.prevStore = JSON.parse(driver.getItem(this.key)) || {};
         driver.setItem(this.key, JSON.stringify(this.store));
 
         this.notifySubscribers();
@@ -68,7 +68,7 @@ export class Caddy {
      */
     notifyListeners () {
         // Get the keys of both the previous and current stores.
-        const prevKeys = Object.keys(this.prevStore || {});
+        const prevKeys = Object.keys(this.prevStore);
         const currentKeys = Object.keys(this.store);
 
         // Go through every current key
